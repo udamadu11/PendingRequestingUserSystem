@@ -7,9 +7,13 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Sign up Bootstrap</title>
+    <title>Album example · Bootstrap</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
 
     <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -17,29 +21,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-
     
-
   </head>
-  <body class="text-center">
-  	<div class="container">
-    <form class="form-signin">
-  		
-      <img class="mb-4" src="../image/bstr.png" alt="" width="72" height="72">
-  		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+  <body>
+   
 
-      <label for="inputName" class="sr-only">User Name</label>
-      <input type="text" id="inputEmail" class="form-control" placeholder="User Name" required autofocus>
+<main role="main">
 
-  		<label for="inputEmail" class="sr-only">Email address</label>
-  		<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Album example</h1>
+      
+        <a href="#" class="btn btn-primary my-2">Main call to action</a>
+        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+      </p>
+    </div>
+  </section>
 
-  		<label for="inputPassword" class="sr-only">Password</label>
-  		<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-
-  		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
- 		   <a href="login.php"><p>Go back to Previous page</p></a>
-</form>
-</div>
-</body>
+ </body>
 </html>
