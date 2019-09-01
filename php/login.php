@@ -19,35 +19,55 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
+    
       }
     </style>
     <link href="signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
+
+  	<?php 
+
+
+	$dbsevername = "localhost";
+	$dbUsername = "root";
+	$dbPassword = "";
+	$dbName = "pending";
+
+	$con = mysqli_connect($dbsevername, $dbUsername, $dbPassword,$dbName);
+	if(!$con){
+		echo "No Connection";
+	}
+
+  		if (isset($_POST['signin'])) {
+  			$password = $_POST['password'];
+  			$email = $_POST['email'];
+  			$ru = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+  			$query =mysqli_query($con,$ru);
+ 			if ($query -> num_rows > 0) {
+			while ($row = $query -> fetch_assoc()) {
+  				if ($row['email']==$email && $row['password']==$password) {
+  					$_SESSION['login'] = true;
+  					header('Location:admin.php');
+  				}else{
+  					echo "<script>alert('Wrong Login Details');</script>";
+  				}
+  			}
+  		}
+  			
+  		}
+
+  	?>
   	<div class="container">
-    <form class="form-signin">
+    <form class="form-signin" method="post">
   		<img class="mb-4" src="../image/bstr.png" alt="" width="72" height="72">
   		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-  		<label for="inputEmail" class="sr-only">Email address</label>
-  		<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-  		<label for="inputPassword" class="sr-only">Password</label>
-  		<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
   		
-  		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  		<input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
+  		
+  		<input type="password" name="password" class="form-control" placeholder="Password" required>
+  		
+  		<button name="signin" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
  		
  		 <a href="signUp.php"><p>Go  to Registration page</p></a>
 </form>
