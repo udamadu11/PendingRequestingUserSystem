@@ -23,23 +23,49 @@
   </head>
   <body class="text-center">
   	<div class="container">
-    <form class="form-signin">
+    <form class="form-signin" method="post">
   		
       <img class="mb-4" src="../image/bstr.png" alt="" width="72" height="72">
   		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
       <label for="inputName" class="sr-only">User Name</label>
-      <input type="text class="form-control" placeholder="User Name" required autofocus>
+      <input type="text" id="inputEmail" name="username" class="form-control" placeholder="User Name" required autofocus>
 
   		<label for="inputEmail" class="sr-only">Email address</label>
-  		<input type="email class="form-control" placeholder="Email address" required autofocus>
+  		<input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
 
   		<label for="inputPassword" class="sr-only">Password</label>
-  		<input type="password"  class="form-control" placeholder="Password" required>
+  		<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
 
-  		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+  		<button name="signup" class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
  		   <a href="login.php"><p>Go back to Previous page</p></a>
 </form>
 </div>
 </body>
 </html>
+<?php 
+
+
+  $dbsevername = "localhost";
+  $dbUsername = "root";
+  $dbPassword = "";
+  $dbName = "pending";
+
+  $con = mysqli_connect($dbsevername, $dbUsername, $dbPassword,$dbName);
+  if(!$con){
+    echo "No Connection";
+  }
+
+      if (isset($_POST['signup'])) {
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $ru = "INSERT INTO  users (username,email,password) VALUES('$username','$email','$password')";
+        $query =mysqli_query($con,$ru);
+       if ($query) {
+          echo "<script>alert('Sign Up Successfully');</script>";
+        }else{
+        echo "<script>alert('Sign Up Not Successfully');</script>";
+      }
+}
+    ?>
