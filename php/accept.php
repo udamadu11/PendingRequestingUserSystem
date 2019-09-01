@@ -13,13 +13,17 @@
 
       $id = $_GET['id'];
       $query = "SELECT * FROM request WHERE id = '$id'";
-
-        $username =  $_GET['username'];
-        $email =  $_GET['email'];
-        $password =  $_GET['password'];
+      $reqc= mysqli_query($con,$query);
+      while($row = mysqli_fetch_assoc($reqc)){
+        $username =  $row['username'];
+        $email =  $row['email'];
+        $password =  $row['password'];
         $message = "$username would like to request an account";
         $ru = "INSERT INTO  users (username,email,type,password) VALUES('$username','$email','user','$password')";
         $query =mysqli_query($con,$ru);
+  }
+
+        
         
 
      $rrquery = "DELETE FROM request WHERE id = '$id'";
