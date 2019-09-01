@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Sign up Bootstrap</title>
+    <title>Signup Bootstrap</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
 
@@ -60,12 +60,13 @@
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $ru = "INSERT INTO  users (username,email,password) VALUES('$username','$email','$password')";
+        $message = "$username would like to request an account";
+        $ru = "INSERT INTO  request (username,email,password,message,mdate) VALUES('$username','$email','$password','$message',CURRENT_TIMESTAMP)";
         $query =mysqli_query($con,$ru);
        if ($query) {
-          echo "<script>alert('Sign Up Successfully');</script>";
+          echo "<script>alert('Your account is now pending for approval.plz wait for confirmation');</script>";
         }else{
-        echo "<script>alert('Sign Up Not Successfully');</script>";
+        echo "<script>alert('unknown error');</script>";
       }
 }
     ?>
