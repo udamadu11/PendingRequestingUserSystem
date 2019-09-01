@@ -1,4 +1,6 @@
-
+<?php 
+session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -48,6 +50,7 @@
 			while ($row = $query -> fetch_assoc()) {
   				if ($row['email']==$email && $row['password']==$password) {
   					$_SESSION['login'] = true;
+  					$_SESSION['type'] = $row['type'];
   					header('Location:admin.php');
   				}else{
   					echo "<script>alert('Wrong Login Details');</script>";
