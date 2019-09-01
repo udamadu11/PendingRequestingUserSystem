@@ -55,12 +55,41 @@ if ($_SESSION['login']!==true) {
 
   <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">Pending Requesting</h1>
-      <p class="lead text-muted">I would like to join your Web site.Thank You....</p>
+      <?php 
+
+  $dbsevername = "localhost";
+  $dbUsername = "root";
+  $dbPassword = "";
+  $dbName = "pending";
+
+  $con = mysqli_connect($dbsevername, $dbUsername, $dbPassword,$dbName);
+  if(!$con){
+    echo "No Connection";
+  }
+
+        $rquery = "SELECT * FROM request";
+        $query =mysqli_query($con,$rquery);
+      if ($query -> num_rows > 0) {
+      while ($row = $query -> fetch_assoc()) {
+
+        ?>
+      <h1 class="jumbotron-heading"><?php echo $row['email'] ?></h1>
+      <p class="lead text-muted"><?php echo $row['message'] ?></p>
       <p>
-        <a href="#" class="btn btn-primary my-2">Accept</a>
-        <a href="#" class="btn btn-secondary my-2">Decline</a>
+        <a href="accept.php?id=<?php echo $row['id'] ?>" class="btn btn-primary my-2">Accept</a>
+        <a href="reject.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary my-2">Decline</a>
       </p>
+      <small><i><?php echo $row['mdate'] ?></i></small>
+      <?php 
+        }
+        }else{
+          echo "No pending Request";
+        }
+
+      ?>    
+       
+
+      
     </div>
   </section>
 
