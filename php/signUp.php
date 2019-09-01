@@ -29,13 +29,13 @@
   		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
       <label for="inputName" class="sr-only">User Name</label>
-      <input type="text" id="inputEmail" class="form-control" placeholder="User Name" required autofocus>
+      <input type="text class="form-control" placeholder="User Name" required autofocus>
 
   		<label for="inputEmail" class="sr-only">Email address</label>
-  		<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+  		<input type="email class="form-control" placeholder="Email address" required autofocus>
 
   		<label for="inputPassword" class="sr-only">Password</label>
-  		<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+  		<input type="password"  class="form-control" placeholder="Password" required>
 
   		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
  		   <a href="login.php"><p>Go back to Previous page</p></a>
