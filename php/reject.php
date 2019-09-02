@@ -18,3 +18,4 @@
      }
 
  ?>
+ <a href="admin.php">Go to previous Page....</a>
